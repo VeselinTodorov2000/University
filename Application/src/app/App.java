@@ -121,8 +121,7 @@ public class App {
         System.out.println("5 - Show departments headteacher");
         System.out.println("6 - Enroll student");
         System.out.println("7 - Hire teacher");
-        System.out.println("8 - Create course");
-        System.out.println("9 - Exit");
+        System.out.println("8 - Exit");
     }
 
     //choice 1
@@ -241,40 +240,9 @@ public class App {
         db2Obj.insert("INSERT INTO FN71923.TEACHER VALUES ('" + name + "', '" + egn + "', '" + scientificTitle + "', '" + departmentName + "')");
     }
 
-
-    private static void choice8(App db2Obj)
-    {
-        input.nextLine();
-        String name;
-        System.out.print("Enter name: ");
-        name = input.nextLine();
-
-        int courseNumber;
-        System.out.print("Enter course number: ");
-        courseNumber = input.nextInt();
-
-        int year;
-        System.out.print("Enter year: ");
-        year = input.nextInt();
-
-        String type;
-        System.out.print("Enter type: ");
-        type = input.next();
-
-        String description;
-        System.out.print("Enter type: ");
-        description = input.nextLine();
-
-        String egn;
-        do {
-            System.out.print("Enter egn (10 digits): ");
-            egn = input.nextLine();
-        } while(!egn.matches("[0-9]{10}"));
-
-        db2Obj.insert("INSERT INTO FN71923.COURSES VALUES ('" + name + "', " + courseNumber + ", " + year + ", '" + type + "', " + description + ", '" + egn + "')");
-    }
-
     public static void main(String[] args) {
+
+
         //initialise
         App db2Obj = new App();
         db2Obj.openConnection();
@@ -326,17 +294,12 @@ public class App {
                 }
                 case 8:
                 {
-                    choice8(db2Obj);
-                    break;
-                }
-                case 9:
-                {
                     System.out.println("Thank you for using our program");
                     break;
                 }
 
             }
-        } while(currentChoise != 9);
+        } while(currentChoise != 8);
 
         //finalise
         db2Obj.closeConnection();
